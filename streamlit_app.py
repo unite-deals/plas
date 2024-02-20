@@ -27,6 +27,15 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 pipeline = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0")
 
+
+def save_uploaded_file(uploaded_file, local_path):
+    with open(local_path, 'wb') as f:
+        f.write(uploaded_file.getbuffer())
+
+def load_image(local_path):
+    img = Image.open(local_path)
+    return img
+
 def main():
     st.title("Welcome to TechnoGlobalGroupLLC.ai!")
     st.write("With this tool, you can easily visualize the results of an AI based Interior before it happens")
@@ -111,10 +120,10 @@ def main():
     if st.button("Generate"):
         # Check if an image was uploaded
         if uploaded_file is not None:
-            image_bytes = io.BytesIO(uploaded_file.read()) #uploaded_file.read()
-            pil_image = Image.open(image_bytes)
+            image_bytes = uploaded_file.read()
+            pil_image = Image.open(io.BytesIO(image_bytes))
             init_image = load_image(pil_image).convert("RGB")
-            prompt = f"generate image of how this person would look after {strg} also use this additional information{text_input}"
+            prompt = f"generate image of how this person & interiors would look after {strg} also use this additional information{text_input}"
             image = pipeline(prompt, image=init_image).images
             st.image(image, caption="Uploaded Image", use_column_width=True)
         else:
