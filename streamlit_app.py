@@ -111,7 +111,7 @@ def main():
     if st.button("Generate"):
         # Check if an image was uploaded
         if uploaded_file is not None:
-            image_bytes = Image.open(image) #uploaded_file.read()
+            image_bytes = Image.open(uploaded_file) #uploaded_file.read()
             #pil_image = Image.open(io.BytesIO(image_bytes))
             init_image = load_image(image_bytes).convert("RGB")
             prompt = f"generate image of how this person would look after {strg} also use this additional information{text_input}"
