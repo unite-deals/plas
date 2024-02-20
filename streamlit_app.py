@@ -32,7 +32,7 @@ def main():
     st.write("With this tool, you can easily visualize the results of an AI based Interior before it happens")
     
     # Add an image input field
-    uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+    uploaded_file = st.file_uploader("Choose an image...", type="jpg","png")
      # Add padding
     st.write("")
     st.write("")
