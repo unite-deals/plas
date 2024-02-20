@@ -25,7 +25,7 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-pipeline = DiffusionPipeline.from_pretrained("stabilityai/sdxl-turbo")
+pipeline = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0")
 
 
 
@@ -115,7 +115,7 @@ def main():
         # Check if an image was uploaded
         if uploaded_file is not None:
             image_bytes = uploaded_file.read()
-            pil_image = Image.open(io.BytesIO(image_bytes))
+            pil_image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
             #image = st.image(uploaded_file, caption="Graph")
             #pil_image = Image.open(image).convert("RGB")
             #init_image = load_image(pil_image).convert("RGB")
