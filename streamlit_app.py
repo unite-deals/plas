@@ -29,7 +29,7 @@ pipeline = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-re
 
 def main():
     st.title("Welcome to TechnoGlobalGroupLLC.ai!")
-    st.write("With this tool, you can easily visualize the results of an AI surgical procedure before it happens")
+    st.write("With this tool, you can easily visualize the results of an AI based Interior before it happens")
     
     # Add an image input field
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
@@ -63,7 +63,7 @@ def main():
 
     # Add a section with multiple options
     st.header("Select an option:")
-    option = st.selectbox("", ("Face Lift", "Nose correction", "Chin implant"))
+    option = st.selectbox("", ("Ambient background", "Realistic detailed looks", "3D render effect"))
     st.write("You selected:", option)
     
     # Add padding
