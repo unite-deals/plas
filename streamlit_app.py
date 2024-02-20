@@ -28,13 +28,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 pipeline = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0")
 
 
-def save_uploaded_file(uploaded_file, local_path):
-    with open(local_path, 'wb') as f:
-        f.write(uploaded_file.getbuffer())
 
-def load_image(local_path):
-    img = Image.open(local_path)
-    return img
 
 def main():
     st.title("Welcome to TechnoGlobalGroupLLC.ai!")
