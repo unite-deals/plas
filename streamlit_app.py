@@ -114,8 +114,10 @@ def main():
     if st.button("Generate"):
         # Check if an image was uploaded
         if uploaded_file is not None:
-            image_bytes = uploaded_file.read()
-            pil_image = Image.open(io.BytesIO(image_bytes))
+            #image_bytes = uploaded_file.read()
+            #pil_image = Image.open(io.BytesIO(image_bytes))
+            image = st.image(uploaded_file, caption="Graph")
+            pilimage = Image.open(image).convert("RGB")
             init_image = load_image(pil_image).convert("RGB")
             prompt = f"generate image of how this background interiors would look after {strg} also use this additional information{text_input}"
             image = pipeline(prompt, image=init_image).images
