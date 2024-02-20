@@ -119,7 +119,7 @@ def main():
             #image = st.image(uploaded_file, caption="Graph")
             #pil_image = Image.open(image).convert("RGB")
             #init_image = load_image(pil_image).convert("RGB")
-            prompt = f"generate image of how this background interiors would look after {strg} also use this additional information{text_input}"
+            prompt = f"generate image of how this background interiors would look after also use this additional information{text_input}"
             image = pipeline(prompt, image=pil_image).images
             st.image(image, caption="Uploaded Image", use_column_width=True)
         else:
